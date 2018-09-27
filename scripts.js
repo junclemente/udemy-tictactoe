@@ -15,14 +15,16 @@ function changeMark(count) {
 
 function updateTheSquare(square) {
     var theSquare = document.getElementById(square);
-    var currentMark = theSquare.innerText;
+    // var currentMark = theSquare.innerText;
+    var currentMark = theSquare.textContent;
     var index = mark.indexOf(currentMark);
-    theSquare.innerText = changeMark(index);
+    // theSquare.innerText = changeMark(index);
+    theSquare.textContent = changeMark(index);
 };
 
 restart.addEventListener("click", function() {
     allSquares.forEach(function(square) {
-        square.innerText = mark[0];
+        square.textContent = mark[0];
     });
 });
 
