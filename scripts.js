@@ -1,5 +1,8 @@
 
 var mark = ["", "X", "O"];
+var tictactoeTable = document.querySelector("#tictactoe");
+var allSquares = document.querySelectorAll("#tictactoe td");
+var restart = document.querySelector("#b");
 
 function changeMark(count) {
     if (count < 2) {
@@ -7,33 +10,23 @@ function changeMark(count) {
     } else {
         count = 0;
     }
-    console.log(count)
     return mark[count];
 };
 
-var tictactoeTable = document.querySelector("#tictactoe");
-var allSquares = document.querySelectorAll("#tictactoe td");
-var restart = document.querySelector("#b");
-// var r1c1 = document.querySelector("#one-one");
+function updateTheSquare(square) {
+    var theSquare = document.getElementById(square);
+    var currentMark = theSquare.innerText;
+    var index = mark.indexOf(currentMark);
+    theSquare.innerText = changeMark(index);
+};
 
 restart.addEventListener("click", function() {
-    // console.log(allSquares);
     allSquares.forEach(function(square) {
         square.innerText = mark[0];
-    })
+    });
 });
-
-// r1c1.addEventListener("click", function() {
-//     var currentMark = r1c1.innerText;
-//     var index = mark.indexOf(currentMark);
-//     r1c1.innerText = changeMark(index);
-// });
 
 tictactoeTable.addEventListener("click", function(event) {
     var squareID = event.target.id;
-    console.log(squareID);
+    updateTheSquare(squareID);
 });
-
-// function findTheSquare(square) {
-//     var theSquare = document
-// };
